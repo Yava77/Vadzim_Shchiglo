@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let famname, name, surname; 
+        do {
+            famname = prompt('Введите вашу фамилию:');
+        } while ( !famname );
+        do {
+            name = prompt('Введите ваше имя:');
+        } while ( !name );
+        do {
+            surname = prompt('Введите ваше отчество:');
+        } while ( !surname );
+
+        do {
+            var ageStr = prompt('Введите ваш возраст:');
+            var age = parseInt(ageStr);
+        } while (isNaN(age));
+        var pol = confirm('Вы мужского пола? Отмена - Нет , OK - Да');
+        var pensiya;
+
+        var day365 = (age * 365);
+        var after5year = (age + 5);
+        if (pol === true) {
+            mw = 'Мужской';
+        }
+        else {
+            mw = 'Женский';
+        }
+
+        if (pol === true) {
+            if (age > 63) {
+                pensiya = 'Да'; 
+            }
+            else {
+                pensiya = 'Нет';
+            }
+        } else if (pol === false) {
+            if (age > 58) {
+                pensiya = 'Да'; 
+            }
+            else {
+                pensiya = 'Нет';
+            }
+        }
+
+        
+
+        alert(`ваше ФИО: ${famname} ${name} ${surname} 
+               ваш возраст в годах: ${age} 
+               ваш возраст в днях: ${day365} 
+               через 5 лет вам будет: ${after5year}
+               ваш пол: ${mw} 
+               вы на пенсии: ${pensiya}
+               `)
+    </script>
+</body>
+
+</html>
