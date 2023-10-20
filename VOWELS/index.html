@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function vowelsCount (str) {
+            const vowels = {'а':true,'е':true,'ё':true,'и':true,'о':true,'у':true,'ы':true,'э':true,'ю':true,'я':true};
+
+            let count=0;
+            for ( let i=0; i<str.length; i++) {
+                const ch=str[i];
+                if (ch in vowels)
+                count++;
+            }
+            return count;
+        }
+        let EnterString=prompt("Введите строку:");
+        const result=vowelsCount(EnterString);
+        console.log(`Кол-во гласных букв: ${result}`);
+    </script>
+</body>
+</html>
