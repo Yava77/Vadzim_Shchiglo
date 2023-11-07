@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function vowelsCountForEach(str) {
+            const vowels=['а','е','ё','и','о','у','ы','э','ю','я'];
+            let cnt = 0;
+            str.toLowerCase().split('').forEach(function(v) {
+                if ( vowels.includes(v)){
+                    cnt++;
+                }
+            });
+            return cnt;
+        }
+
+        function vowelsCountForFilter(str) {
+            const vowels=['а','е','ё','и','о','у','ы','э','ю','я'];
+            const vowelsChars = str.toLowerCase().split('');
+            const filterVowelsChars = vowelsChars.filter(function(v) {
+                return vowels.includes(v);
+            });
+            return filterVowelsChars.length;
+        }
+
+        function vowelsCountForReduce(str) {
+            const vowels=['а','е','ё','и','о','у','ы','э','ю','я'];
+            const vowelsChars = str.toLowerCase().split('');
+            function f(acc,ch) {
+                acc += vowels.includes(ch) ? 1 : 0;
+                return acc;
+        }
+        return vowelsChars.reduce( f, 0 );
+    }
+
+        const enterString = prompt('Введите строку');
+        const result1 = vowelsCountForEach(enterString);
+        const result2 = vowelsCountForFilter(enterString);
+        const result3 = vowelsCountForReduce(enterString);
+        alert(`Кол-во гласных букв при использовании forEach: ${result1}\n
+        Кол-во гласных букв при использовании filter: ${result2}\n
+        Кол-во гласных букв при использовании reduce: ${result3}\n`)
+    </script>
+</body>
+</html>
